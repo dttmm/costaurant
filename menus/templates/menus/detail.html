@@ -1,4 +1,3 @@
-<!--[A] 템플릿에서 정적파일 경로를 사용하기 위해서는 먼저 load해야 할 것이 있습니다.-->
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -15,7 +14,6 @@
     <div class="container">
       <div class="nav">
         <a href="/menus/">
-          <!--[B] 메뉴 화면으로 돌아가는 URL은 무엇일까요?-->
           <img src="{% static 'menus/images/logo-color.svg' %}">
         </a>
       </div>
@@ -27,17 +25,16 @@
             <img src="{% static 'menus/images/menu-txt.svg' %}">
           </h2>
           <div class="menu_img">
-            <img src="{% static 'menus/images/chicken.jpg' %}">
+            <img src={% get_static_prefix %}{{menu.img_path}}>
           </div>
           <div class="menu_info">
-            <h3>코딩에 빠진 닭</h3>
-            <h4>Crispy, Juicy chicken with Soy sauce</h4>
-            <p class="menu-desc">지금까지 이런 맛은 없었다. 이건은 갈비인가 통닭인가</p>
-            <p class="price">&#8361;20,000원</p>
+            <h3>{{menu.name}}</h3>
+            <h4>{{menu.name_eng}}</h4>
+            <p class="menu-desc">{{menu.description}}</p>
+            <p class="price">&#8361;{{menu.price}}</p>
           </div>
           <div class="back-main">
             <a href="/menus/">돌아가기</a>
-            <!--[C] 메뉴 화면으로 돌아가는 URL 입니다.-->
           </div>
         </div>
       </div>
